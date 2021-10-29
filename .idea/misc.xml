@@ -3,7 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/drawable/btn_bg.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/drawable/email.xml" value="0.215625" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/drawable/indicator_active.xml" value="0.215625" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/drawable/indicator_inactive.xml" value="0.215625" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/drawable/inputbg.xml" value="0.240625" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_splash_screen.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_emailsentpage.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_forgotpasswordpage.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_homepage.xml" value="0.11820652173913043" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_loginpage.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_maps.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_newpasswordpage.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_o_t_ppage.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_registrationpage.xml" value="0.25" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_settingpage.xml" value="0.11820652173913043" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/onboarding_item_container.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/slide_item_container.xml" value="0.19947916666666668" />
       </map>
     </option>
   </component>
