@@ -21,4 +21,8 @@
     <string name="kenyan_emergency_service_with_real_time_location_tracking">Kenyan_emergency_service_with Real Time Location Tracking</string>
     <string name="title_text">Title Text</string>
     <string name="descripton_text">Descripton Text</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
