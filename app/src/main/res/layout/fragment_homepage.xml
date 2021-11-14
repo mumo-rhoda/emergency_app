@@ -11,10 +11,11 @@
         android:id="@+id/imageView5"
         android:layout_width="68dp"
         android:layout_height="54dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="346dp"
         android:layout_marginBottom="661dp"
+        android:contentDescription="@string/logo_image"
         android:src="@drawable/heart1___copy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,68 +28,72 @@
         android:id="@+id/profilepic"
         android:layout_width="48dp"
         android:layout_height="61dp"
-        android:layout_marginStart="283dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="672dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="62dp"
+        android:contentDescription="@string/profilepicture"
         android:src="@drawable/account_circle_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="371dp"
         android:layout_height="129dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="19dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="41dp"
         android:layout_marginBottom="515dp"
+        android:contentDescription="@string/todo"
         android:src="@drawable/home_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilepic"
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="413dp"
-        android:layout_height="505dp"
+        android:layout_height="170dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7">
+            app:layout_constraintTop_toBottomOf="@+id/imageView7">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="214dp"
-            android:orientation="horizontal"
-            >
+            android:layout_height="144dp"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="109dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/callquick" />
+                    android:contentDescription="@string/callquick"
+                    android:src="@drawable/callquick"
+                    tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Quick call" />
+                    android:text="@string/quick_call" />
 
 
             </LinearLayout>
@@ -98,19 +103,22 @@
                 android:layout_height="116dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/quickreportimage" />
+                    android:background="@color/white"
+                    android:src="@drawable/quickreportimage"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:contentDescription="@string/Quickreporting" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Quick Report" />
+                    android:text="@string/quick_report" />
 
 
             </LinearLayout>
@@ -120,26 +128,90 @@
                 android:layout_height="119dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/historyimage" />
+                    android:background="@color/white"
+                    android:contentDescription="@string/historynotifications"
+                    android:src="@drawable/historyimage"
+                    tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="History" />
+                    android:text="@string/history" />
 
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="311dp"
+        android:text="@string/emergency_tips"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="194dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="308dp"
+        android:text="@string/see_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="310dp"
+        android:layout_marginBottom="43dp"
+
+        android:contentDescription="@string/videotips"
+        android:src="@drawable/videotips"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="91dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="289dp"
+        android:contentDescription=" @string/articletips"
+
+        android:src="@drawable/tipsanduppdatespage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

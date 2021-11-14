@@ -2,7 +2,7 @@
     <string name="app_name">ERA</string>
     <string name="kenyan_emergency_service_with">Kenyan Emergency Service with</string>
     <string name="realtime_tracking">RealTime Tracking</string>
-    <string name="todo">TODO</string>
+
     <string name="eclipse">eclipse</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -25,4 +25,19 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string  name="emergency_tips">Emergency Tips</string>
+    <string name="history">History</string>
+    <string name="quick_report">Quick Report</string>
+    <string name="todo">TODO</string>
+    <string name="logo_image">logo image</string>
+    <string name="quick_call">Quick call</string>
+
+    <string name="see_all">See all</string>
+    <string name="profilepicture">profilepicture</string>
+    <string name="callquick">call quick</string>
+    <string name="Quickreporting">Quickreporting</string>
+    <string name="historynotifications" />
+    <string name="videotips">videotips</string>
+    <string name="articletips">articletips</string>
+
 </resources>
