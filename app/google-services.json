@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "312468608156",
+    "firebase_url": "https://emergencyresponseapp-default-rtdb.firebaseio.com",
+    "project_id": "emergencyresponseapp",
+    "storage_bucket": "emergencyresponseapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312468608156:android:a96c1c1f7ab5c6f5d0c959",
+        "android_client_info": {
+          "package_name": "era.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312468608156-gq8155uhinllckdrf485nic33subb4l3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2K8Pl3uOwllcDfuGXK9xTLn-f8SfYe_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312468608156-gq8155uhinllckdrf485nic33subb4l3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
