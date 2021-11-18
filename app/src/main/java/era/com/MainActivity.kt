@@ -28,6 +28,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent)
         }
 
+        val loginbutton = findViewById<Button>(R.id.buttonlogin)
+        loginbutton.setOnClickListener {
+            val Intent = Intent(this,login::class.java)
+            startActivity(Intent)
+        }
+
     }
     private fun setOnboardingItems() {
         onboardingItemsAdapter =OnboardingItemsAdapter(

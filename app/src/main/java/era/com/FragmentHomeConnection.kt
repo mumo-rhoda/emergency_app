@@ -64,8 +64,8 @@ class FragmentHomeConnection : AppCompatActivity() {
                 btnS.setImageResource(R.drawable.blacksettings)
 
             }
-            btnN -> {
-                manger.replace(R.id.myView,notificationFrag)
+            btnS -> {
+                manger.replace(R.id.myView,settingsFrag)
                     .commit()
                 btnHo.setImageResource(R.drawable.ic_home_black_24dp)
                 btnHe.setImageResource(R.drawable.ic_dashboard_black_24dp)

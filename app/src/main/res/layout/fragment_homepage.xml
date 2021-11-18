@@ -4,70 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:actionBarNavMode="standard"
-    tools:context=".Homepage" >
+    tools:actionBarNavMode="tabs"
+    tools:context=".Homepage">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="68dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="346dp"
-        android:layout_marginBottom="661dp"
-        android:contentDescription="@string/logo_image"
-        android:src="@drawable/heart1___copy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/profilepic"
-        android:layout_width="48dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="62dp"
-        android:contentDescription="@string/profilepicture"
-        android:src="@drawable/account_circle_"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="371dp"
-        android:layout_height="129dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="515dp"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+
         android:contentDescription="@string/todo"
+
         android:src="@drawable/home_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilepic"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="413dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
         android:orientation="vertical"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7">
+        app:layout_constraintTop_toBottomOf="@+id/imageView7">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,13 +50,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/callquick"
-                    android:src="@drawable/callquick"
-                    tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+                    android:onClick="addFragOnClick"
+                    android:src="@drawable/callquick" />
 
                 <TextView
+                    style="@style/TextAppearance.AppCompat.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/quick_call" />
+                    android:padding="10dp"
+                    android:text="@string/quick_call"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -108,17 +75,22 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/reportingbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:src="@drawable/quickreportimage"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    android:contentDescription="@string/Quickreporting" />
+                    android:contentDescription="@string/Quickreporting"
+                    android:onClick="addFragOnClick"
+                    android:src="@drawable/quickreportimage" />
 
                 <TextView
+                    style="@style/TextAppearance.AppCompat.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/quick_report" />
+                    android:paddingBottom="10dp"
+                    android:text="@string/quick_report"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -133,17 +105,22 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/historybutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:contentDescription="@string/historynotifications"
-                    android:src="@drawable/historyimage"
-                    tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+                    android:onClick="addFragOnClick"
+                    android:src="@drawable/historyimage" />
 
                 <TextView
+                    style="@style/TextAppearance.AppCompat.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/history" />
+                    android:paddingBottom="10dp"
+                    android:text="@string/history"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -154,16 +131,16 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="311dp"
+        android:layout_marginLeft="30dp"
         android:text="@string/emergency_tips"
+        android:textSize="18dp"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.157" />
 
     <TextView
         android:id="@+id/textView9"
@@ -177,7 +154,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.654" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -187,8 +165,9 @@
         android:layout_marginTop="51dp"
         android:layout_marginEnd="310dp"
         android:layout_marginBottom="43dp"
-
         android:contentDescription="@string/videotips"
+
+        android:onClick="addFragOnClick"
         android:src="@drawable/videotips"
         app:layout_constraintBottom_toTopOf="@+id/imageButton3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -201,17 +180,13 @@
         android:id="@+id/imageButton3"
         android:layout_width="91dp"
         android:layout_height="76dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="289dp"
         android:contentDescription=" @string/articletips"
+        android:onClick="addFragOnClick"
 
         android:src="@drawable/tipsanduppdatespage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="559dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

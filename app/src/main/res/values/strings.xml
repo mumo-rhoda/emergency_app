@@ -25,7 +25,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string  name="emergency_tips">Emergency Tips</string>
+    <string name="emergency_tips">Emergency Tips</string>
     <string name="history">History</string>
     <string name="quick_report">Quick Report</string>
     <string name="todo">TODO</string>
@@ -39,5 +39,6 @@
     <string name="historynotifications" />
     <string name="videotips">videotips</string>
     <string name="articletips">articletips</string>
+    <string name="already_have_an_account_sign_in">Already have an account <b> Sign In?</b></string>
 
 </resources>
