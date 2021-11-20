@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -14,21 +15,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ERA">
         <activity
-
-            android:name=".login"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:name=".EmergencyDescription"
+            android:parentActivityName=".EmergencyTipsActivity"
             android:exported="false" />
         <activity
-            android:name=".Registration"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:name=".ReportingActivity"
             android:exported="false" />
+        <activity
+            android:name=".EmergencyTipsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".Registration"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".FragmentHomeConnection"
             android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,8 +62,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -3,12 +3,14 @@ package era.com
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import era.com.databinding.ActivityRegistrationBinding
+import kotlinx.android.synthetic.main.activity_registration.*
 import java.util.regex.Pattern
 
 class Registration : AppCompatActivity() {
@@ -29,6 +31,15 @@ class Registration : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        checkBox.setOnClickListener{
+            if (checkBox.isChecked){
+                inputpassword.inputType = 1
+            }
+            else
+                inputpassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_NUMBER_VARIATION_PASSWORD
+        }
+
+
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()

@@ -4,13 +4,17 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.util.Patterns
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import era.com.databinding.ActivityLoginBinding
 import era.com.databinding.ActivityRegistrationBinding
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_registration.*
 
 class login : AppCompatActivity() {
 
@@ -48,6 +52,16 @@ class login : AppCompatActivity() {
         //handle login
         binding.btnsigin.setOnClickListener {
             validateData()
+        }
+
+
+
+        checkBox2.setOnClickListener{
+            if (checkBox2.isChecked){
+                InputPassword.inputType = 1
+            }
+            else
+                InputPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_NUMBER_VARIATION_PASSWORD
         }
     }
 
