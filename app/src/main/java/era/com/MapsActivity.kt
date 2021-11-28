@@ -18,6 +18,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import era.com.databinding.ActivityMapsBinding
 import android.Manifest
+import android.content.Intent
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_maps.*
+import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -26,6 +31,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        proceed.setOnClickListener {
+            startActivity( Intent(this, ReportEmergency::class.java ))
+            finish()
+
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -40,6 +51,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap //initialise map
         getCurrentLocation()
+        setMapLongClick(map)
+        setPoiClick(map)
     }
     private fun setupLocClient() {
         fusedLocClient =
@@ -71,9 +84,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             fusedLocClient.lastLocation.addOnCompleteListener {
                 // lastLocation is a task running in the background
                 val location = it.result //obtain location
-                //reference to the database
-                val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-                val ref: DatabaseReference = database.getReference("test")
+                // reference to the database
+                val database: FirebaseFirestore = FirebaseFirestore.getInstance()
+                val ref: CollectionReference = database.collection("Location")
                 if (location != null) {
 
                     val latLng = LatLng(location.latitude, location.longitude)
@@ -85,7 +98,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                     map.moveCamera(update)
                     //Save the location data to the database
-                    ref.setValue(location)
+                    ref.document()
+                        .set(location)
                 } else {
                     // if location is null , log an error message
                     Log.e(TAG, "No location found")
@@ -96,8 +110,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
+    private fun setMapLongClick(map: GoogleMap) {
+        map.setOnMapLongClickListener {
+            val snippet = String.format(
+                 Locale.getDefault(),
+                "Lat: %1$.5f, Lng: %2$.5f",
+                it.latitude,
+                it.longitude
+            )
+            map.addMarker(
+                MarkerOptions()
+                    .position(it)
+                    .title(getString(R.string.dropped_pin))
+                    .snippet(snippet)
+            )
 
 
+        }
+    }
+
+    private fun setPoiClick(map: GoogleMap) {
+        map.setOnPoiClickListener {
+            val poiMarker = map.addMarker(MarkerOptions()
+                .position(it.latLng)
+                .title(it.name)
+            )
+            poiMarker?.showInfoWindow()
+        }
+    }
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,

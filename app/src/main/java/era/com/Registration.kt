@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import era.com.databinding.ActivityRegistrationBinding
 import kotlinx.android.synthetic.main.activity_registration.*
 import java.util.regex.Pattern
@@ -31,6 +33,8 @@ class Registration : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
         checkBox.setOnClickListener{
             if (checkBox.isChecked){
                 inputpassword.inputType = 1
@@ -68,6 +72,7 @@ class Registration : AppCompatActivity() {
     private var username = ""
     private var email = ""
     private var password = ""
+    private var phonenumber =""
 
 
     private fun validateData() {
@@ -75,6 +80,7 @@ class Registration : AppCompatActivity() {
         username = binding.regusername.text.toString().trim()
         email = binding.txtemailaddress.text.toString().trim()
         password = binding.inputpassword.text.toString().trim()
+        phonenumber = binding.inputphonenumber.text.toString().trim()
 
         if (fullname.isEmpty()){
             Toast.makeText(this,"Enter your Full Name...", Toast.LENGTH_SHORT).show()
@@ -141,12 +147,18 @@ class Registration : AppCompatActivity() {
         hashMap["username"] = username
         hashMap["userType"] = "user"
         hashMap["timestamp"] = timestamp
+        hashMap["phonenumber"]=phonenumber
+        hashMap["password"]=password
 
         //set data to db
+        val db = Firebase.firestore
+        db.collection("Users").document()
+            .set(hashMap)
 
-        val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(uid!!)
-            .setValue(hashMap)
+
+        //val ref = FirebaseDatabase.getInstance().getReference("Users")
+        // ref.child(uid!!)
+          //  .setValue(hashMap)
             .addOnSuccessListener {
 
                 progressDialog.dismiss()
@@ -164,7 +176,7 @@ class Registration : AppCompatActivity() {
 
     }
 
-    fun CharSequence.isValidPassword(): Boolean {
+    private fun CharSequence.isValidPassword(): Boolean {
         val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@$%^&+=!])(?=\\S+$).{4,}$"
         val pattern = Pattern.compile(passwordPattern)
         val matcher = pattern.matcher(this)

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportEmergency">
+
+    <TextView
+        android:id="@+id/reporttopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+
+
+        android:text="@string/report_emergency"
+        android:textColor="@color/red"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reporttopic"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textinputlayout1"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="12dp"
+        android:hint="Enter Emergency Type"
+
+        app:hintEnabled="true"
+
+        android:textColorHint="@color/red">
+
+        <EditText
+            android:id="@+id/Choose_Emergency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+            android:autofillHints="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textinputlayout1"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="12dp"
+        android:hint="First or Third Party Reporter?"
+        android:id="@+id/inputlayout2"
+
+        app:hintEnabled="true"
+
+        android:textColorHint="@color/red">
+
+        <EditText
+            android:id="@+id/partyreport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textlayout3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputlayout2"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Short Description of Emergency"
+        android:textColorHint="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="100"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red">
+
+        <EditText
+            android:id="@+id/emegencydescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+
+
+            android:lines="5"
+
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageEmergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textlayout3"
+
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp"
+
+
+        android:src="@drawable/photo_camera_24"
+         />
+
+    <Button
+        android:id="@+id/takeimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+
+
+        android:text="Upload Photo" />
+
+    <Button
+        android:id="@+id/Report_Now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="57dp"
+        android:layout_toRightOf="@id/takeimage"
+
+
+        android:text="Report Now" />
+
+</RelativeLayout>

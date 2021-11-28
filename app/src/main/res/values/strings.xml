@@ -47,4 +47,17 @@
     <string name="emergency_tips_item_android_id"><![CDATA[Emergency Tips /> <item android:id=]]></string>
     <string name="title_activity_maps">MapsActivity</string>
 
+    <string name="dropped_pin">pinned location</string>
+    <string name="report_emergency">Report Emergency</string>
+
+    <string-array name="Choose_Emergency">
+        <item> Accidents </item>
+        <item> Building Collapse</item>
+        <item> Fire </item>
+        <item> Terror Alert</item>
+        <item> Robbery with Violence</item>
+        <item> Medical Health</item>
+
+    </string-array>
+
 </resources>

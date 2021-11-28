@@ -41,10 +41,12 @@
 
     <Button
         android:id="@+id/buttonGetStarted"
-        android:layout_width="190dp"
-        android:layout_height="49dp"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="41dp"
         android:background="@drawable/btn_bg"
         android:fontFamily="@font/roboto_medium"
         android:paddingStart="40dp"
@@ -59,20 +61,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonlogin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonlogin"
-        android:layout_width="181dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="104dp"
+
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="38dp"
+
         android:background="@drawable/btn_bg"
         android:fontFamily="@font/roboto_medium"
-
         android:paddingStart="40dp"
         android:paddingEnd="40dp"
-
         android:text="Log In"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -83,7 +88,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonGetStarted"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/onboardingViewPager"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onboardingViewPager"

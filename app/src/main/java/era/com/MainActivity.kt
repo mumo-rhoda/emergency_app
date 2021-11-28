@@ -40,17 +40,17 @@ class MainActivity : AppCompatActivity() {
             listOf(
                 OnboardingItem(
                     title = "Remote Tracking",
-                    description = "Allow your device location for Rescuer to find your location and safety status. Real-time tracking of your location during emergency",
+                    description = "Allow your device location, to enable Rescuer to find your location and safety status. Real-time tracking of your location during emergency",
                     onboardingImage = R.drawable.realtime
                 ),
                 OnboardingItem(
-                    title = "Emergency",
-                    description = "Real-time tracking of your location during emergency",
+                    title = "Get Elaborate Emergency Tips",
+                    description = "The response app will entail, concrete emergency steps you can immediately undertake in times of emergency and follow to minimise bleedings or worst case scenarios ",
                     onboardingImage = R.drawable.choosemergency
                ),
                 OnboardingItem(
-                    title = "Emergency",
-                    description = "Real-time tracking of your location during emergency",
+                    title = "Get Help with a call, attach a photo of incident",
+                    description = "As a user you can easily call to add more infomation, call to report and attach a photo of any emergency incident. To enable emergency scenarios efficient and effective in saving a life",
                     onboardingImage = R.drawable.emegencytips
                 )
             )
