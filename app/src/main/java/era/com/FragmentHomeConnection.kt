@@ -1,11 +1,14 @@
 package era.com
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.adapters.TextViewBindingAdapter.setText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_fragment_home_connection.*
 import kotlinx.android.synthetic.main.activity_maps.*
 
@@ -16,7 +19,7 @@ class FragmentHomeConnection : AppCompatActivity() {
 
     private var database: FirebaseDatabase? = null
     private var databaseReference : DatabaseReference? =null
-
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +27,40 @@ class FragmentHomeConnection : AppCompatActivity() {
         firebaseAuth= FirebaseAuth.getInstance()
         database=FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("Users")
+        val sharedPref=this?.getPreferences(Context.MODE_PRIVATE)?:return
+        val isLogin=sharedPref.getString("Email", "1")
+
+
+
+
+
+        if(isLogin=="1") {
+
+            var email=intent.getStringExtra("email")
+            if(email!=null)
+            {
+                setText(email)
+                with(sharedPref.edit())
+                {
+                    putString("Email",email)
+                    apply()
+                }
+            }
+        }
+        else
+        {
+           var intent = Intent(this,Registration::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
+
+
+
+
 
         loadProfile()
-
         historybutton.setOnClickListener{
             val intent = Intent(this, ReportEmergency::class.java)
             startActivity(intent)
@@ -63,6 +97,19 @@ class FragmentHomeConnection : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
+    }
+
+    private fun setText(email: String) {
+        db=FirebaseFirestore.getInstance()
+        if (email!= null){
+            db.collection("Users").document().get()
+                .addOnSuccessListener{
+                    tasks->
+                    Welcome.text=tasks.get("Name").toString()
+                }
+        }
 
 
     }

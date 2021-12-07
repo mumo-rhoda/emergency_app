@@ -1,7 +1,9 @@
 package era.com
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -30,10 +32,13 @@ class login : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         //init firebase auth
 
@@ -94,6 +99,7 @@ class login : AppCompatActivity() {
 
         firebaseAuth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
+
                startActivity(Intent(this@login, FragmentHomeConnection::class.java))
                 finish()
             }

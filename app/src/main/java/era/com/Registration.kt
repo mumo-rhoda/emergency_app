@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import era.com.databinding.ActivityRegistrationBinding
@@ -148,7 +147,7 @@ class Registration : AppCompatActivity() {
         hashMap["userType"] = "user"
         hashMap["timestamp"] = timestamp
         hashMap["phonenumber"]=phonenumber
-        hashMap["password"]=password
+
 
         //set data to db
         val db = Firebase.firestore

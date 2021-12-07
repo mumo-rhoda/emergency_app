@@ -1,41 +1,47 @@
 package era.com
 
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_report_emergency.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
+import java.sql.Timestamp
+
+import java.util.*
 
 
 class ReportEmergency : AppCompatActivity() {
 
+    private lateinit var filepath : Uri
+    private lateinit var progressDialog: ProgressDialog
 
-   private lateinit var filepath : Uri
 
-
-    private lateinit var binding: ReportEmergency
+    //private lateinit var binding: ReportEmergency
 
     private lateinit var buttonimage: Button
     private lateinit var imageView: ImageView
     private lateinit var buttonreport: Button
 
-    private val reportCollectionRef = Firebase.firestore.collection( "Reports")
+
+    //private var emergencytype=""
+    //private var party = ""
+    //private var description=""
+
+
+    private val reportRef = Firebase.firestore.collection("Reports")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,33 +52,51 @@ class ReportEmergency : AppCompatActivity() {
         imageView = findViewById(R.id.imageEmergency)
         buttonreport = findViewById(R.id.Report_Now)
 
+        val intent = intent
+        val latitude = intent.getDoubleExtra("lat", 0.00)
+        val longitude = intent.getDoubleExtra("long",0.00)
+
+        Longitude.text = "$longitude"
+        Latitude.text = "$latitude"
 
         buttonimage.setOnClickListener {
             chooseimage()
         }
 
         buttonreport.setOnClickListener {
-            val reporttype = Choose_Emergency.text.toString()
-            val party = partyreport.text.toString()
-            val reportdescription = emegencydescription.text.toString()
-            val report = Reports(reporttype, party, reportdescription)
+            val timestamp= System.currentTimeMillis()
+            val uid = FirebaseAuth.getInstance().uid
+            val reportID = "$uid,$timestamp"
+            val emergencyType = Choose_Emergency.text.toString()
+            val reportParty= partyreport.text.toString()
+            val description = emegencydescription.text.toString()
+
+            val reportStatus = "Pending"
+
+
+
+            val report = Reports(uid,reportID,emergencyType,reportParty,description,latitude,longitude,timestamp,reportStatus)
+
             saveReports(report)
+
+
         }
 
     }
 
     private fun saveReports(report: Reports) = CoroutineScope(Dispatchers.IO).launch {
         try{
-            reportCollectionRef.add(report)
+            reportRef.add(report)
 
             withContext(Dispatchers.Main){
-                Toast.makeText(this@ReportEmergency, "Successfully saved data.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ReportEmergency, "Successfully saved data", Toast.LENGTH_SHORT).show()
             }
+
+
         }catch (e: Exception){
             withContext(Dispatchers.Main){
-                Toast.makeText(this@ReportEmergency, e.message,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ReportEmergency, e.message, Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 
@@ -85,9 +109,9 @@ class ReportEmergency : AppCompatActivity() {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override  fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode==111 && resultCode == Activity.RESULT_OK && data != null){
+        if (requestCode==111 && resultCode == RESULT_OK && data != null){
             filepath = data.data!!
             var bitmap = MediaStore.Images.Media.getBitmap(contentResolver,filepath)
             imageView.setImageBitmap(bitmap)
@@ -97,7 +121,7 @@ class ReportEmergency : AppCompatActivity() {
             pd.setTitle("Uploading")
             pd.show()
 
-            var imageRef = FirebaseStorage.getInstance().reference.child("EmergencyImages/$filepath")
+            var imageRef = FirebaseStorage.getInstance().reference.child("Images/$filepath")
             imageRef.putFile(filepath)
                 .addOnSuccessListener {
                     pd.dismiss()

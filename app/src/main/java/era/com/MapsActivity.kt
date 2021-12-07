@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import era.com.databinding.ActivityMapsBinding
 import android.Manifest
 import android.content.Intent
+import android.widget.TextView
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_maps.*
@@ -27,13 +28,27 @@ import java.util.*
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
+    private lateinit var mLatitude: TextView
+    private lateinit var mLangitude: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+        mLatitude = findViewById(R.id.mLatitude)
+        mLangitude = findViewById(R.id.mLangitude)
 
         proceed.setOnClickListener {
-            startActivity( Intent(this, ReportEmergency::class.java ))
+
+            val lat = mLatitude.text.toString().toDouble()
+            val long = mLangitude.text.toString().toDouble()
+
+            val intent = Intent(this@MapsActivity, ReportEmergency::class.java )
+
+            intent.putExtra("lat", lat)
+            intent.putExtra("long", long)
+
+            startActivity(intent)
+
             finish()
 
         }
@@ -85,11 +100,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 // lastLocation is a task running in the background
                 val location = it.result //obtain location
                 // reference to the database
+
                 val database: FirebaseFirestore = FirebaseFirestore.getInstance()
                 val ref: CollectionReference = database.collection("Location")
                 if (location != null) {
 
                     val latLng = LatLng(location.latitude, location.longitude)
+                     val lt = location.latitude
+                     val gt = location.longitude
+
+                    mLatitude.text = "$lt"
+                    mLangitude.text = "$gt"
+
+
+
+
+
+
+
+
                     // create a marker at the exact location
                     map.addMarker(MarkerOptions().position(latLng)
                         .title("You are currently here!"))
@@ -97,6 +126,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     val update = CameraUpdateFactory.newLatLngZoom(latLng, 16.0f)
 
                     map.moveCamera(update)
+
                     //Save the location data to the database
                     ref.document()
                         .set(location)

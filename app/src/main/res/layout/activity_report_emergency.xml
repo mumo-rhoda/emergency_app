@@ -18,8 +18,7 @@
         android:text="@string/report_emergency"
         android:textColor="@color/red"
         android:textSize="24sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -35,7 +34,8 @@
 
         app:hintEnabled="true"
 
-        android:textColorHint="@color/red">
+         android:textColorHint="@color/red"
+    >
 
         <EditText
             android:id="@+id/Choose_Emergency"
@@ -46,7 +46,7 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
-            android:autofillHints="" />
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -110,14 +110,13 @@
         android:id="@+id/imageEmergency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textlayout3"
+        android:layout_below="@id/Longitude"
 
-        android:layout_marginTop="40dp"
         android:layout_marginLeft="60dp"
+        android:layout_marginTop="46dp"
 
 
-        android:src="@drawable/photo_camera_24"
-         />
+        android:src="@drawable/photo_camera_24" />
 
     <Button
         android:id="@+id/takeimage"
@@ -141,5 +140,27 @@
 
 
         android:text="Report Now" />
+
+
+
+    <TextView
+        android:id="@+id/Latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude"
+        android:layout_marginLeft="40dp"
+
+
+        android:layout_below="@id/textlayout3"/>
+
+
+
+    <TextView
+        android:id="@+id/Longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Latitude"
+        android:layout_marginLeft="40dp"
+        android:text="Longitude" />
 
 </RelativeLayout>
