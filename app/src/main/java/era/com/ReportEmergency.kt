@@ -34,14 +34,12 @@ class ReportEmergency : AppCompatActivity() {
     private lateinit var buttonimage: Button
     private lateinit var imageView: ImageView
     private lateinit var buttonreport: Button
+    private val timestamp= System.currentTimeMillis()
+    private val uid = FirebaseAuth.getInstance().uid
+    private val reportID = "$uid,$timestamp"
 
 
-    //private var emergencytype=""
-    //private var party = ""
-    //private var description=""
-
-
-    private val reportRef = Firebase.firestore.collection("Reports")
+    private val reportRef = Firebase.firestore.collection("Reports").document(reportID)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,9 +62,7 @@ class ReportEmergency : AppCompatActivity() {
         }
 
         buttonreport.setOnClickListener {
-            val timestamp= System.currentTimeMillis()
-            val uid = FirebaseAuth.getInstance().uid
-            val reportID = "$uid,$timestamp"
+
             val emergencyType = Choose_Emergency.text.toString()
             val reportParty= partyreport.text.toString()
             val description = emegencydescription.text.toString()
@@ -86,7 +82,7 @@ class ReportEmergency : AppCompatActivity() {
 
     private fun saveReports(report: Reports) = CoroutineScope(Dispatchers.IO).launch {
         try{
-            reportRef.add(report)
+            reportRef.set(report)
 
             withContext(Dispatchers.Main){
                 Toast.makeText(this@ReportEmergency, "Successfully saved data", Toast.LENGTH_SHORT).show()
