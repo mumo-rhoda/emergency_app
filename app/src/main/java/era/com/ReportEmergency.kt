@@ -1,13 +1,17 @@
 package era.com
 
 
+import android.Manifest.permission.SEND_SMS
+
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.telephony.SmsManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,6 +25,7 @@ import kotlinx.coroutines.withContext
 import java.sql.Timestamp
 
 import java.util.*
+import java.util.jar.Manifest
 
 
 class ReportEmergency : AppCompatActivity() {
@@ -34,7 +39,7 @@ class ReportEmergency : AppCompatActivity() {
     private lateinit var buttonimage: Button
     private lateinit var imageView: ImageView
     private lateinit var buttonreport: Button
-    private val timestamp= System.currentTimeMillis()
+    private var timestamp= com.google.firebase.Timestamp.now()
     private val uid = FirebaseAuth.getInstance().uid
     private val reportID = "$uid,$timestamp"
 
@@ -46,6 +51,9 @@ class ReportEmergency : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_emergency)
 
+
+
+
         buttonimage = findViewById(R.id.takeimage)
         imageView = findViewById(R.id.imageEmergency)
         buttonreport = findViewById(R.id.Report_Now)
@@ -56,6 +64,11 @@ class ReportEmergency : AppCompatActivity() {
 
         Longitude.text = "$longitude"
         Latitude.text = "$latitude"
+
+        reporttopic.setOnClickListener {
+            sendSMS()
+
+        }
 
         buttonimage.setOnClickListener {
             chooseimage()
@@ -71,13 +84,20 @@ class ReportEmergency : AppCompatActivity() {
 
 
 
-            val report = Reports(uid,reportID,emergencyType,reportParty,description,latitude,longitude,timestamp,reportStatus)
+            val report = Reports(uid,reportID,emergencyType,reportParty,description,latitude,longitude,
+                timestamp,reportStatus)
 
             saveReports(report)
 
 
         }
 
+    }
+    private fun sendSMS(){
+     val uri = Uri.parse("smsto: +254716234610")
+        val intent = Intent(Intent.ACTION_SENDTO,uri)
+        intent.putExtra("sms_body","message")
+            startActivity(intent)
     }
 
     private fun saveReports(report: Reports) = CoroutineScope(Dispatchers.IO).launch {
@@ -111,6 +131,8 @@ class ReportEmergency : AppCompatActivity() {
             filepath = data.data!!
             var bitmap = MediaStore.Images.Media.getBitmap(contentResolver,filepath)
             imageView.setImageBitmap(bitmap)
+
+
         }
         if (filepath!=null){
             var pd = ProgressDialog(this)

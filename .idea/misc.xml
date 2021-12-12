@@ -22,7 +22,9 @@
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/drawable/viewpagerbackground.xml" value="0.215625" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_emergency_tips.xml" value="0.10916919959473151" />
-        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_fragment_home_connection.xml" value="0.16" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_forgot_password.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_fragment_home_connection.xml" value="0.1" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_history.xml" value="0.2203125" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_maps.xml" value="0.22447916666666667" />
@@ -31,6 +33,7 @@
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_reporting.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_settings.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_splash_screen.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/activity_video.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/dropdown_item.xml" value="0.2203125" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_dashboard.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/fragment_emailsentpage.xml" value="0.22418478260869565" />
@@ -50,6 +53,7 @@
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/layout/slide_item_container.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/rhoda/AndroidStudioProjects/ERA/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.240625" />
       </map>
     </option>
   </component>

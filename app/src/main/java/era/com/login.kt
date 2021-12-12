@@ -59,6 +59,11 @@ class login : AppCompatActivity() {
             validateData()
         }
 
+        txtforgotpassword.setOnClickListener{
+
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+
 
 
         checkBox2.setOnClickListener{

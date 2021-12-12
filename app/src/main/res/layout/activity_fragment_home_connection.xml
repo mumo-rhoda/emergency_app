@@ -12,8 +12,7 @@
         android:id="@+id/divider3"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:background="@drawable/indicator_active_background"
-   />
+        android:background="@drawable/indicator_active_background" />
 
     <View
         android:id="@+id/divider2"
@@ -121,7 +120,7 @@
                 android:contentDescription="@string/historynotifications"
 
                 android:src="@drawable/historyimage"
-                 />
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Button"
@@ -139,15 +138,17 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="147dp"
-        android:layout_height="23dp"
+        android:layout_width="254dp"
+        android:layout_height="41dp"
         android:layout_below="@id/divider2"
-        android:layout_toEndOf="@id/videotips"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="60dp"
-        android:text="Video Emergency Tips" />
+        android:layout_toEndOf="@id/videotips"
+        android:text="Video_Emergency_Tips"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/videotips"
@@ -161,6 +162,20 @@
         android:contentDescription="@string/videotips"
         android:src="@drawable/videotips" />
 
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="254dp"
+        android:layout_height="41dp"
+        android:layout_below="@id/divider"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="60dp"
+        android:layout_toEndOf="@id/videotips"
+        android:text="Article_Emergency_Tips"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
@@ -170,40 +185,51 @@
         android:layout_marginBottom="11dp"
         android:background="@drawable/indicator_active_background" />
 
-    <ImageView
-        android:id="@+id/mapviewimage"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/divider"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="6dp"
+    <ImageButton
+        android:id="@+id/articletips"
 
-        app:srcCompat="@android:drawable/ic_menu_mylocation" />
+        android:layout_width="93dp"
+        android:layout_height="96dp"
+        android:layout_below="@id/divider"
+        android:layout_marginStart="16dp"
+
+
+        android:layout_marginEnd="11dp"
+        android:contentDescription="@string/videotips"
+        android:src="@drawable/tipsemergency"
+
+
+        />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/divider"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="11dp"
-        android:layout_toEndOf="@id/mapviewimage"
-        android:text="View Current Location" />
+        android:layout_width="191dp"
+        android:layout_height="51dp"
+        android:layout_above="@id/getReportPage"
+        android:layout_below="@id/articletips"
+        android:layout_alignLeft="@id/settings"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="26dp"
+
+        android:layout_marginBottom="16dp"
+        android:text="View User Settinggs"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/settings"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mapviewimage"
+        android:layout_height="28dp"
+        android:layout_above="@id/getReportPage"
+        android:layout_below="@id/articletips"
         android:layout_marginStart="12dp"
 
-        android:layout_marginTop="10dp"
-        android:minHeight="48dp"
-        android:src="@drawable/pinksettings"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_marginTop="15dp"
 
+
+        android:padding="10dp"
+        android:src="@drawable/pinksettings"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/getReportPage"
@@ -226,8 +252,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView7"
+        android:text="Welcome to the Homepage"
+
+        android:textSize="16sp"
 
 
-        android:text="TextView" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

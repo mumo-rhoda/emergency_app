@@ -11,7 +11,7 @@ data class Reports(
     var description: String,
     var latitude: Double,
     var longitude: Double,
-    val timestamp: Long,
+    val timestamp: Timestamp,
 
     var reportStatus: String="Pending"
 
