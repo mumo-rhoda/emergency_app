@@ -161,9 +161,22 @@ class Registration : AppCompatActivity() {
             .addOnSuccessListener {
 
                 progressDialog.dismiss()
-                Toast.makeText(this,"Account created ", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@Registration, login::class.java))
+                firebaseAuth.currentUser?.sendEmailVerification()
+                    ?.addOnCompleteListener() {
 
+                        Toast.makeText(this, "Account created verify email ", Toast.LENGTH_SHORT)
+                            .show()
+                        txtemailaddress.setText("")
+                        inputpassword.setText("")
+                        inputfullname.setText("")
+                        inputphonenumber.setText("")
+                        regusername.setText("")
+
+                    }
+                    ?.addOnFailureListener {
+                        progressDialog.dismiss()
+                        Toast.makeText(this, "Failed to verify email", Toast.LENGTH_SHORT).show()
+                    }
 
             }
             .addOnFailureListener { e ->

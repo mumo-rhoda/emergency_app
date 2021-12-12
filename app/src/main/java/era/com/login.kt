@@ -103,11 +103,19 @@ class login : AppCompatActivity() {
         progressDialog.show()
 
         firebaseAuth.signInWithEmailAndPassword(email,password)
-            .addOnSuccessListener {
 
-               startActivity(Intent(this@login, FragmentHomeConnection::class.java))
-                finish()
+            .addOnCompleteListener() {
+                progressDialog.hide()
+                if (firebaseAuth.currentUser?.isEmailVerified == true){
+                    startActivity(Intent(this@login, FragmentHomeConnection::class.java))
+                    finish()
+                } else
+                {
+                    Toast.makeText(this,"Login failed verify email", Toast.LENGTH_SHORT).show()
+
+                }
             }
+
             .addOnFailureListener{e->
                 progressDialog.dismiss()
                 Toast.makeText(this,"Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
